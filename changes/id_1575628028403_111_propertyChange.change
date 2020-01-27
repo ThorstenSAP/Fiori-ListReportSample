@@ -1,0 +1,43 @@
+{
+	"fileName": "id_1575628028403_111_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "com.fiorielementsalesorder.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "useExportToExcel",
+		"newValue": true
+	},
+	"selector": {
+		"id": "com.fiorielementsalesorder::sap.suite.ui.generic.template.ListReport.view.ListReport::Orders--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/com.fiorielementsalesorder/changes/",
+	"projectId": "com.fiorielementsalesorder",
+	"creation": "2019-12-06T10:27:24.815Z",
+	"originalLanguage": "DE",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.72.1",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

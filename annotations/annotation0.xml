@@ -1,0 +1,233 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/northwind/V2/Northwind/Northwind.svc/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="NorthwindModel"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="FioriElementSalesOrder.annotations.annotation0.NorthwindModel">
+			<Annotations Target="Metadata.Order">
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="Freight"/>
+									<PropertyValue Property="Descending" Bool="true"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="orderStarted">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Text" String="{@i18n&gt;STARTED}"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="Freight"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" Path="Freight"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LT"/>
+												<PropertyValue Property="Low" Decimal="399"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="orderAlmostDone">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Text" String="Almost Done"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="Freight"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" Path="Freight"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/GE"/>
+												<PropertyValue Property="Low" Decimal="400"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ShipmentDetails"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;SHIPMENT_DETAILS}"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#OrderDetails"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ORDER_DETAILS}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="ShipmentDetails">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="OrderDate"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;DATE_OF_ORDER}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ShipAddress"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SHIPPING_ADDRESS}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ShippedDate"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SHIPPING_DATE}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="OrderDetails">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="CustomerID"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMER}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Freight"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;FREIGHT}"/>
+								</Record>
+								<Record Type="UI.DataFieldWithNavigationPath">
+									<PropertyValue Property="Target" NavigationPropertyPath="Employee"/>
+									<PropertyValue Property="Value" Path="Employee/EmployeeID"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;EMPLOYEE}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="OrderCustomerID">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="CustomerID"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;CUSTOMER_ID}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="SalesOrderID">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="OrderID"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;ORDER_ID}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n&gt;ORDER}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n&gt;ORDERS}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="FreightProgress">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="Freight"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;PROGRESS}"/>
+						<PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+						<PropertyValue Property="TargetValue" Decimal="500.000"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderID"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ORDER_ID}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="RequiredDate"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;REQUIRED_DATE}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderDate"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ORDER_DATE}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ShipAddress"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;SHIPPING_ADDRESS}"/>
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#FreightProgress"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Employee">
+				<Annotation Term="UI.DataPoint" Qualifier="employeeHireDate">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="HireDate"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;HIRED_SINCE}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="employeeID">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="EmployeeID"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;EMPLOYEEID}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="EmployeeName">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="FirstName"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;NAME}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Title"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;TITLE}"/>
+								</Record>
+								<Record Type="UI.DataFieldWithUrl">
+									<PropertyValue Property="Url" String="https://maps.google.de/" />
+<!--        <Apply Function="odata.fillUriTemplate">
+            <String>https://www.google.de/maps/place/{street},{city}</String>
+            <LabeledElement Name="street">
+                <Apply Function="odata.uriEncode">
+                    <Path>Address/Street</Path>
+                </Apply>
+            </LabeledElement>
+            <LabeledElement Name="city">
+                <Apply Function="odata.uriEncode">
+                    <Path>Address/City</Path>
+                </Apply>
+            </LabeledElement>
+        </Apply>
+        -->
+									<PropertyValue Property="Value" Path="City"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;LINK}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="{@i18n&gt;EMPLOYEE}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#EmployeeName"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
